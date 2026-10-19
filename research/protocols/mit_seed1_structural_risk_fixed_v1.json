@@ -1,0 +1,28 @@
+{
+  "status":"preregistered_before_fixed_test",
+  "mode":"mit_seed1_entropy_plus_support_structural_risk_fixed_test",
+  "dataset":"MIT-States seed-1 CAMS checkpoint",
+  "cache":"./CAMS/output/research/cache_mit_seed1/features.pt",
+  "cache_sha256":"eca8675e69ad84a762027dc32391b5e21eb44c31661823c35c51dbf087cecda8",
+  "family_size":3,"auc_gate":0.002,
+  "validation_probe":{"result":"./CAMS/output/research/warmflow_mit_seed1final/structural_risk_probe_v1.json","result_sha256":"8161abc53fd810b9e23b6c79a7840ca1188dd471c5793e6890506769a9583bc2"},
+  "candidate":{"beta":1.0,"slope":4.0,"threshold":0.8,"route_a":{"route":"inverse_pair_support","power":1.0,"strength":1.0},"route_b":{"route":"pair_support","power":0.25,"seen_lambda":0.25,"strength":1.5}},
+  "validation_sources":[
+    {"family":"isotropic","path":"./CAMS/output/research/warmflow_mit_seed1final/gaussian_iso_seed0/classifier_logits_residual_1.00.pt","sha256":"5ceab54108acc76bb8abb76af7b6ac6dfd719589d702c48469787bb39514abd9"},
+    {"family":"isotropic","path":"./CAMS/output/research/warmflow_mit_seed1final/gaussian_iso_seed1/classifier_logits_residual_1.00.pt","sha256":"ffad236b3d60598b4ad350d58f790239c065af8a841636bbfb1aaf0802aedaf3"},
+    {"family":"isotropic","path":"./CAMS/output/research/warmflow_mit_seed1final/gaussian_iso_seed2/classifier_logits_residual_1.00.pt","sha256":"74d35deb5a2e72f790988a2ff8044348941209dff02bdf8c2cc0928bfc5e5093"},
+    {"family":"diagonal","path":"./CAMS/output/research/warmflow_mit_seed1final/gaussian_diag_adaptive_val_seed0/classifier_logits_residual_1.00.pt","sha256":"3a5dacf7a222169aa07202ed252d08fee4bcbabf7f6f28af8f7b1ede11194898"},
+    {"family":"diagonal","path":"./CAMS/output/research/warmflow_mit_seed1final/gaussian_diag_adaptive_val_seed1/classifier_logits_residual_1.00.pt","sha256":"e0f0cf65f29395f3d199aacbb3a6788bf4001460847793f289ed620be343d896"},
+    {"family":"diagonal","path":"./CAMS/output/research/warmflow_mit_seed1final/gaussian_diag_adaptive_val_seed2/classifier_logits_residual_1.00.pt","sha256":"47b41fa26361d1c5e7dc424ad6a34494e20485ff08ddcd73930c8d569a295840"}
+  ],
+  "sources":[
+    {"family":"isotropic","path":"./CAMS/output/research/warmflow_mit_seed1final/gaussian_iso_seed0/classifier_logits_residual_1.00.pt","sha256":"5ceab54108acc76bb8abb76af7b6ac6dfd719589d702c48469787bb39514abd9"},
+    {"family":"isotropic","path":"./CAMS/output/research/warmflow_mit_seed1final/gaussian_iso_seed1/classifier_logits_residual_1.00.pt","sha256":"ffad236b3d60598b4ad350d58f790239c065af8a841636bbfb1aaf0802aedaf3"},
+    {"family":"isotropic","path":"./CAMS/output/research/warmflow_mit_seed1final/gaussian_iso_seed2/classifier_logits_residual_1.00.pt","sha256":"74d35deb5a2e72f790988a2ff8044348941209dff02bdf8c2cc0928bfc5e5093"},
+    {"family":"diagonal","path":"./CAMS/output/research/warmflow_mit_seed1final/gaussian_diag_adaptive_test_seed0/classifier_logits_residual_1.00.pt","sha256":"14305ab1664dc20d340f780d854acdfb84c90d65cbc77a3fb6b7ad3bc091e3c0"},
+    {"family":"diagonal","path":"./CAMS/output/research/warmflow_mit_seed1final/gaussian_diag_adaptive_test_seed1/classifier_logits_residual_1.00.pt","sha256":"e2a0e78276d5c4e0ee5bce69edcef061fdfa16b6fb7f185e8a05ddb31cca4535"},
+    {"family":"diagonal","path":"./CAMS/output/research/warmflow_mit_seed1final/gaussian_diag_adaptive_test_seed2/classifier_logits_residual_1.00.pt","sha256":"e4d983d7592466468d074b3a278795cb634da0f805faf34056a9460b2b5abb0a"}
+  ],
+  "normalization":"validation_entropy_plus_support_minmax_reused_for_test","test_search_after_lock":false,
+  "script":{"path":"./CAMS/research/fixed_adaptive_route_risk_test.py","sha256":"e582a215a5f6a6369e1d7cd866402a43e40bc9dab1560b03dc89fadb19135bcc"}
+}

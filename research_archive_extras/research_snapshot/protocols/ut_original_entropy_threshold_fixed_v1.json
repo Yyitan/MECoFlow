@@ -1,0 +1,40 @@
+{
+  "status": "preregistered_before_fixed_test",
+  "mode": "entropy_threshold_temperature_fixed_test",
+  "dataset": "UT-Zappos original CAMS checkpoint",
+  "cache": "./CAMS/output/research/warmflow_ut/features.pt",
+  "cache_sha256": "653e895fee5084560ea587609b1bb59ee20f8b36fb915719a533011218e6e578",
+  "family_size": 3,
+  "validation_probe": {
+    "result": "./CAMS/output/research/warmflow_ut/adaptive_route_threshold_probe_v1.json",
+    "result_sha256": "97a93857ad3d52de6234e650fef9650651d52226e67279f6f18ecf14bb5c82e9"
+  },
+  "validation_sources": [
+    {"family": "isotropic", "path": "./CAMS/output/research/warmflow_ut/gaussian_iso_seed0/classifier_logits_residual_1.00.pt", "sha256": "4c5a30fe3528ed4f8c00124e35a657b131700c81324e7b6879874867ef31e521"},
+    {"family": "isotropic", "path": "./CAMS/output/research/warmflow_ut/gaussian_iso_seed1/classifier_logits_residual_1.00.pt", "sha256": "f03fb25fb12a9239b70c1e7dba93e0176d80919515b1007ad5b33826a9f9675c"},
+    {"family": "isotropic", "path": "./CAMS/output/research/warmflow_ut/gaussian_iso_seed2/classifier_logits_residual_1.00.pt", "sha256": "77e23a31e8de783ae639c4013b7e1f471543fa2606eb9ea3d2cdf6243dff42b0"},
+    {"family": "diagonal", "path": "./CAMS/output/research/warmflow_ut/gaussian_diag_seed0/classifier_logits_residual_1.00.pt", "sha256": "fe7eded379364c3785842631c5cee6a65c3380b926c6cac88a136c13b2eec48b"},
+    {"family": "diagonal", "path": "./CAMS/output/research/warmflow_ut/gaussian_diag_seed1/classifier_logits_residual_1.00.pt", "sha256": "4cb792659f5427db49edea8e1318aa94a6695593432eb6e8a9e4949b366ec811"},
+    {"family": "diagonal", "path": "./CAMS/output/research/warmflow_ut/gaussian_diag_seed2/classifier_logits_residual_1.00.pt", "sha256": "7ce85080b83a18daa263f500bf4698f9b4a52c819506ed7733450d4c12783fb8"}
+  ],
+  "sources": [
+    {"family": "isotropic", "path": "./CAMS/output/research/warmflow_ut/gaussian_iso_seed0/classifier_logits_residual_1.00.pt", "sha256": "4c5a30fe3528ed4f8c00124e35a657b131700c81324e7b6879874867ef31e521"},
+    {"family": "isotropic", "path": "./CAMS/output/research/warmflow_ut/gaussian_iso_seed1/classifier_logits_residual_1.00.pt", "sha256": "f03fb25fb12a9239b70c1e7dba93e0176d80919515b1007ad5b33826a9f9675c"},
+    {"family": "isotropic", "path": "./CAMS/output/research/warmflow_ut/gaussian_iso_seed2/classifier_logits_residual_1.00.pt", "sha256": "77e23a31e8de783ae639c4013b7e1f471543fa2606eb9ea3d2cdf6243dff42b0"},
+    {"family": "diagonal", "path": "./CAMS/output/research/warmflow_ut/gaussian_diag_seed0/classifier_logits_residual_1.00.pt", "sha256": "fe7eded379364c3785842631c5cee6a65c3380b926c6cac88a136c13b2eec48b"},
+    {"family": "diagonal", "path": "./CAMS/output/research/warmflow_ut/gaussian_diag_seed1/classifier_logits_residual_1.00.pt", "sha256": "4cb792659f5427db49edea8e1318aa94a6695593432eb6e8a9e4949b366ec811"},
+    {"family": "diagonal", "path": "./CAMS/output/research/warmflow_ut/gaussian_diag_seed2/classifier_logits_residual_1.00.pt", "sha256": "7ce85080b83a18daa263f500bf4698f9b4a52c819506ed7733450d4c12783fb8"}
+  ],
+  "scripts": {
+    "validation_probe": {"path": "./CAMS/research/adaptive_route_blend_probe.py", "sha256": "aff211d5a0f437338d48bb2081a5a3baa1b09717441be611e9055b6cdfd4133c"},
+    "fixed_runner": {"path": "./CAMS/research/fixed_adaptive_route_blend_test.py", "sha256": "3b17c41fc5e64de673748d234ab427b2825fcb5d7b257dbe669f64e8011e46ed"},
+    "source_audit": {"path": "./CAMS/research/audit_adaptive_route_source_seeds.py", "sha256": "dd4a1d0e8fdacce1b08e67fa8479268461ce354c114cabb2fb9e7c3c46fda161"}
+  },
+  "candidate": {
+    "schedule": "hard_0.7",
+    "normalization": "validation_entropy_minmax_reused_for_test",
+    "route_a": {"route": "inverse_pair_support", "power": 1.0, "delta": "update", "strength": 1.0},
+    "route_b": {"route": "pair_support", "power": 0.25, "scope": "soft_tapered", "seen_lambda": 0.25, "delta": "full", "strength": 1.5}
+  },
+  "selection_rule": "retain AUC gain >= .002 and maximize HM in validation-only probe"
+}

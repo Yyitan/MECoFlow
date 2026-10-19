@@ -1,0 +1,22 @@
+{
+  "status": "incompatible",
+  "dataset": "MIT-States",
+  "phase": "val",
+  "comparison": [
+    {
+      "name": "mit_original_cache",
+      "path": "output/research/piflow_mit/features.pt",
+      "sha256": "c9200e01e6c759eabe0a70aa832170ebafafcb286f3db3060c8ae063c2f91a21",
+      "AUC": 0.26478452495700355,
+      "best_hm": 0.4353496936519336
+    },
+    {
+      "name": "mit_seed1_cache",
+      "path": "output/research/cache_mit_seed1/features.pt",
+      "sha256": "eca8675e69ad84a762027dc32391b5e21eb44c31661823c35c51dbf087cecda8",
+      "AUC": 0.2597338201388241,
+      "best_hm": 0.4287004521188392
+    }
+  ],
+  "decision": "Do not train or aggregate an original-MIT diagonal family from the seed-1 cache. Existing MIT seed-1 replay remains checkpoint-specific evidence."
+}

@@ -1,0 +1,30 @@
+{
+  "status": "preregistered_before_fixed_test",
+  "dataset": "MIT-States",
+  "scope": "MIT seed-1 checkpoint, validation-locked source-family aggregation",
+  "cache": "output/research/cache_mit_seed1/features.pt",
+  "cache_sha256": "eca8675e69ad84a762027dc32391b5e21eb44c31661823c35c51dbf087cecda8",
+  "source_family": "isotropic_gaussian",
+  "sources": [
+    {"path": "output/research/warmflow_mit_seed1final/gaussian_iso_seed0/classifier_logits_residual_1.00.pt", "sha256": "5ceab54108acc76bb8abb76af7b6ac6dfd719589d702c48469787bb39514abd9"},
+    {"path": "output/research/warmflow_mit_seed1final/gaussian_iso_seed1/classifier_logits_residual_1.00.pt", "sha256": "ffad236b3d60598b4ad350d58f790239c065af8a841636bbfb1aaf0802aedaf3"},
+    {"path": "output/research/warmflow_mit_seed1final/gaussian_iso_seed2/classifier_logits_residual_1.00.pt", "sha256": "74d35deb5a2e72f790988a2ff8044348941209dff02bdf8c2cc0928bfc5e5093"}
+  ],
+  "candidate_set": [
+    {
+      "name": "source_median_update",
+      "aggregation": "median(zscore(source_logits))",
+      "delta": "update = source_median - zscore(CLIP_text_logits)",
+      "strength": 0.75
+    }
+  ],
+  "validation_gate": {
+    "result": "output/research/warmflow_mit_seed1final/distribution_ensemble_probe_single.json",
+    "result_sha256": "98986f4a624070b30ef9e39a609fe8d46f2c1d04bca039dfd5453eb993b85af5",
+    "test_read": false,
+    "mean_val_auc_gain": 0.0030322579503979097,
+    "mean_val_hm_gain": 0.0014344102233696532,
+    "min_val_auc_gain": 0.002
+  },
+  "test_rule": "Use the unique candidate exactly once; do not search strength or aggregation after test access."
+}

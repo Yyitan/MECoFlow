@@ -1,0 +1,20 @@
+{
+  "status":"preregistered_before_fixed_test",
+  "method":"train-support pair-level isotropic/diagonal source routing",
+  "dataset":"UT-Zappos original CAMS checkpoint",
+  "cache":"./CAMS/output/research/warmflow_ut/features.pt",
+  "cache_sha256":"653e895fee5084560ea587609b1bb59ee20f8b36fb915719a533011218e6e578",
+  "family_size":3,
+  "sources":[
+    {"family":"isotropic","path":"./CAMS/output/research/warmflow_ut/gaussian_iso_seed0/classifier_logits_residual_1.00.pt","sha256":"4c5a30fe3528ed4f8c00124e35a657b131700c81324e7b6879874867ef31e521"},
+    {"family":"isotropic","path":"./CAMS/output/research/warmflow_ut/gaussian_iso_seed1/classifier_logits_residual_1.00.pt","sha256":"f03fb25fb12a9239b70c1e7dba93e0176d80919515b1007ad5b33826a9f9675c"},
+    {"family":"isotropic","path":"./CAMS/output/research/warmflow_ut/gaussian_iso_seed2/classifier_logits_residual_1.00.pt","sha256":"77e23a31e8de783ae639c4013b7e1f471543fa2606eb9ea3d2cdf6243dff42b0"},
+    {"family":"diagonal","path":"./CAMS/output/research/warmflow_ut/gaussian_diag_seed0/classifier_logits_residual_1.00.pt","sha256":"fe7eded379364c3785842631c5cee6a65c3380b926c6cac88a136c13b2eec48b"},
+    {"family":"diagonal","path":"./CAMS/output/research/warmflow_ut/gaussian_diag_seed1/classifier_logits_residual_1.00.pt","sha256":"4cb792659f5427db49edea8e1318aa94a6695593432eb6e8a9e4949b366ec811"},
+    {"family":"diagonal","path":"./CAMS/output/research/warmflow_ut/gaussian_diag_seed2/classifier_logits_residual_1.00.pt","sha256":"7ce85080b83a18daa263f500bf4698f9b4a52c819506ed7733450d4c12783fb8"}
+  ],
+  "candidate":{"route":"pair_support","power":0.25,"delta":"update","strength":1.25},
+  "validation_probe":{"result":"./CAMS/output/research/warmflow_ut/pair_source_router_probe_v1.json","result_sha256":"d5c90bb6afd1301a974c1eb4046fda2cc073bb0ebfe30717072d7e972cd3bd8b","script":"research/pair_source_router_probe.py","script_sha256":"a75c5b2966694805a55bfcc013c066b385cdcd573701a835fb98ff7f6fcebc91","test_read":false},
+  "selection_rule":"AUC-focused validation gate: retain AUC gain >= 0.002 and maximize validation AUC; no test search",
+  "test_rule":"evaluate unique train-support route exactly once; do not alter family aggregation, power, delta, strength, or route after test access"
+}

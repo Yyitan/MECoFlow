@@ -1,0 +1,20 @@
+{
+  "status":"preregistered_before_fixed_test",
+  "method":"pair-level isotropic/diagonal source routing by family disagreement",
+  "dataset":"MIT-States original CAMS checkpoint",
+  "cache":"./CAMS/output/research/piflow_mit/features.pt",
+  "cache_sha256":"c9200e01e6c759eabe0a70aa832170ebafafcb286f3db3060c8ae063c2f91a21",
+  "family_size":3,
+  "sources":[
+    {"family":"isotropic","path":"./CAMS/output/research/warmflow_mit_gaussian_iso_seed0/classifier_logits_residual_0.50.pt","sha256":"8b53be791759eea966adaced4a74c509725cc2f797a559624bce82b123735b32"},
+    {"family":"isotropic","path":"./CAMS/output/research/warmflow_mit_gaussian_iso_seed1/classifier_logits_residual_0.50.pt","sha256":"a34d73872eb74fa87f6df295f1ce7c436526d7d4beb8b972fca4fc4c35712ae3"},
+    {"family":"isotropic","path":"./CAMS/output/research/warmflow_mit_gaussian_iso_seed2/classifier_logits_residual_0.50.pt","sha256":"ecbb463deb2b8b9d4c40b05e5c76941c0aa24d29ca9e86e5741f5756780746ba"},
+    {"family":"diagonal","path":"./CAMS/output/research/warmflow_mit_gaussian_diag_seed0/classifier_logits_residual_0.50.pt","sha256":"74d4cce9b778f5eb3b53cc91f0fb87ac334f42867b0d99fd09bb40d456ccf711"},
+    {"family":"diagonal","path":"./CAMS/output/research/warmflow_mit_gaussian_diag_seed1/classifier_logits_residual_0.50.pt","sha256":"90f02d69d7ce7d93256be193dbd479be33998db42c4f0a2fce01046ebc990432"},
+    {"family":"diagonal","path":"./CAMS/output/research/warmflow_mit_gaussian_diag_seed2/classifier_logits_residual_0.50.pt","sha256":"0baf83d5965a2a866d5f5cb800caccf009a9b54dbabb2b5c7c51b2436655923b"}
+  ],
+  "candidate":{"route":"inverse_disagreement_reliability","power":0.5,"delta":"update","strength":0.5},
+  "validation_probe":{"result":"./CAMS/output/research/warmflow_mit/pair_source_router_probe_v1.json","result_sha256":"de794529a1f23c75b5068ce9d677c0af927e1d0b969a44bc8764fd8eb44cf650","script":"research/pair_source_router_probe.py","script_sha256":"a75c5b2966694805a55bfcc013c066b385cdcd573701a835fb98ff7f6fcebc91","test_read":false},
+  "selection_rule":"validation-only balanced candidate imported from the predeclared router grid; no test search",
+  "test_rule":"evaluate unique route exactly once; do not alter family aggregation, power, delta, strength, or route after test access"
+}

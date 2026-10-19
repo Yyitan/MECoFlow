@@ -1,0 +1,28 @@
+{
+  "status": "preregistered_before_fixed_test",
+  "dataset": "UT-Zappos original CAMS checkpoint",
+  "cache": "./CAMS/output/research/warmflow_ut/features.pt",
+  "cache_sha256": "653e895fee5084560ea587609b1bb59ee20f8b36fb915719a533011218e6e578",
+  "validation_probe": "./CAMS/output/research/warmflow_ut/candidate_conditioned_route_probe_v1.json",
+  "validation_probe_sha256": "0340143c6de27e141a75cc0c24a332b219f182c2baa13ce1ceac6dc88b167c88",
+  "candidate": {"name": "candidate_score_sigmoid_-4_0.5", "slope": -4.0, "threshold": 0.5},
+  "sources": [
+    "./CAMS/output/research/warmflow_ut/gaussian_iso_seed0/classifier_logits_residual_1.00.pt",
+    "./CAMS/output/research/warmflow_ut/gaussian_iso_seed1/classifier_logits_residual_1.00.pt",
+    "./CAMS/output/research/warmflow_ut/gaussian_iso_seed2/classifier_logits_residual_1.00.pt",
+    "./CAMS/output/research/warmflow_ut/gaussian_diag_seed0/classifier_logits_residual_1.00.pt",
+    "./CAMS/output/research/warmflow_ut/gaussian_diag_seed1/classifier_logits_residual_1.00.pt",
+    "./CAMS/output/research/warmflow_ut/gaussian_diag_seed2/classifier_logits_residual_1.00.pt"
+  ],
+  "source_sha256": [
+    "4c5a30fe3528ed4f8c00124e35a657b131700c81324e7b6879874867ef31e521",
+    "f03fb25fb12a9239b70c1e7dba93e0176d80919515b1007ad5b33826a9f9675c",
+    "77e23a31e8de783ae639c4013b7e1f471543fa2606eb9ea3d2cdf6243dff42b0",
+    "fe7eded379364c3785842631c5cee6a65c3380b926c6cac88a136c13b2eec48b",
+    "4cb792659f5427db49edea8e1318aa94a6695593432eb6e8a9e4949b366ec811",
+    "7ce85080b83a18daa263f500bf4698f9b4a52c819506ed7733450d4c12783fb8"
+  ],
+  "test_search_after_lock": false,
+  "test_read": true,
+  "script": {"path": "./CAMS/research/fixed_candidate_conditioned_route_test.py", "sha256": "bbd4abd8ecbce991c949066fe4991804455b043a47b7c3a4fb27f8f058797e21"}
+}

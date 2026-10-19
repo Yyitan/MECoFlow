@@ -1,0 +1,42 @@
+{
+  "status": "preregistered_before_base_seed2_epoch1_completed",
+  "dataset": "UT-Zappos",
+  "base_training": {
+    "config": "configs/utzappos_seed2_merf_base.yml",
+    "seed": 2,
+    "epochs": 15,
+    "checkpoint_rule": "maximum validation AUC",
+    "output": "output/utzappos_seed2_merf_base/val_best.pt"
+  },
+  "cache": {
+    "builder": "research/build_feature_cache.py",
+    "phase_scope": ["train", "val", "test"],
+    "selection_may_read_test": false
+  },
+  "generator": {
+    "script": "research/warmstart_flow_classifier.py",
+    "generation_seeds": [0, 1, 2],
+    "residual_distribution": "gaussian_isotropic",
+    "residual_scales": [1.0],
+    "prior_mode": "anova",
+    "source_center": "additive",
+    "flow_epochs": 20,
+    "classifier_epochs": 30,
+    "samples_per_class": 32,
+    "sample_steps": 8,
+    "aux_weight": 0.05,
+    "primitive_aux_weight": 0.0,
+    "primitive_transport_weight": 0.0,
+    "pair_cond_scale": 1.0,
+    "pair_guidance_scale": 1.0,
+    "validation_only_before_gate": true
+  },
+  "frozen_fusion": {
+    "delta": "update",
+    "strength": 1.0,
+    "min_val_auc_gain": 0.002,
+    "evidence": "same setting independently selected on base seeds 0 and 1",
+    "gate": "mean validation AUC gain >= 0.002 absolute across generation seeds"
+  },
+  "test_rule": "If and only if the shared validation gate passes, reproduce the three fixed generator runs with test logits and evaluate the frozen update/1.0 fusion once; do not search any test-dependent setting."
+}

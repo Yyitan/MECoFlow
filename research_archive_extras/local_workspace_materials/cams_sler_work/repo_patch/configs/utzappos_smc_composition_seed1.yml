@@ -1,0 +1,41 @@
+model:
+  model_name: CAMS
+  prompt_template: ["a photo of x x", "a photo of x", "a photo of x"]
+  ctx_init: ["a photo of ", "a photo of ", "a photo of "]
+  clip_model: "./lyt/czsl/CLIP-main/ViT-L-14.pt"
+  num_units: 32
+  m_layers: 9
+  adapter_dim: 64
+
+train:
+  dataset: ut-zappos
+  step_size: 1
+  gamma: 0.5
+  lr: 0.000025
+  train_batch_size: 64
+  epochs: 3
+  context_length: 8
+  seed: 1
+  val_metric: AUC
+  save_final_model: True
+  save_path: output/utzappos_smc_composition_seed1
+  init_model: output/ut_cams_repro_seed1/val_best.pt
+  train_scope: composition
+  att_loss_weight: 0.0
+  obj_loss_weight: 0.0
+  com_loss_weight: 1
+  glb_loss_weight: 0.0
+  use_smc: True
+  smc_marginal_weight: 0.2
+  smc_distill_weight: 0.1
+  smc_temperature: 2.0
+  skip_test_after_train: True
+
+test:
+  open_world: false
+  eval_batch_size: 64
+  feasibility: feasibilities/feasibility_zp.pt
+  threshold: 0.4705232256
+  threshold_trials: 50
+  beta: 0.65
+  load_model: output/utzappos_smc_composition_seed1/val_best.pt

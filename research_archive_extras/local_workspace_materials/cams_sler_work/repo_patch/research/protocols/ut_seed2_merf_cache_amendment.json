@@ -1,0 +1,32 @@
+{
+  "status": "amended_before_seed2_cache_extraction_and_before_any_seed2_merf_test",
+  "parent_protocol": {
+    "path": "research/protocols/ut_seed2_merf_frozen.json",
+    "sha256": "46f1f9b3b35e96fb70da1cc08b1c3b8687b5c08b2a296361611bae780b740fcf",
+    "unchanged": true
+  },
+  "reason": "The named cache builder inherited stochastic train-image transforms but did not explicitly seed the extraction process. Three generator seeds sharing one cache do not cover this nuisance source.",
+  "seed2_compatibility_replay": {
+    "builder_action": "Call set_seed(config.seed) immediately before model/cache construction.",
+    "extraction_seed": 2,
+    "train_transform": "Keep the original Resize+CenterCrop+RandomHorizontalFlip+RandomPerspective+RandomRotation pipeline, with its random sequence fixed by extraction_seed.",
+    "val_test_transform": "Keep the original deterministic Resize+CenterCrop evaluation pipeline.",
+    "provenance_required": [
+      "base checkpoint absolute path and SHA256",
+      "config absolute path and SHA256",
+      "builder absolute path and SHA256",
+      "dataset.py and piflow_pilot.py SHA256",
+      "extraction seed",
+      "train/val/test transform descriptions",
+      "this amendment absolute path and SHA256"
+    ],
+    "selection_and_test_rules_changed": false
+  },
+  "reporting_boundary": "Seed2 is an amended reproducible pipeline. Until base seeds 0 and 1 are rebuilt and replayed with this same fix, do not describe all three base caches as using an identical builder protocol; report earlier two-base evidence and amended seed2 evidence in separate strata.",
+  "deterministic_robustness": {
+    "plan": "After the compatibility replay, build a separate cache using the val/test deterministic transform for train feature extraction and run frozen update_1.00 validation-only.",
+    "may_replace_compatibility_replay": false,
+    "may_read_test": false,
+    "may_change_fusion_or_generator_hyperparameters": false
+  }
+}

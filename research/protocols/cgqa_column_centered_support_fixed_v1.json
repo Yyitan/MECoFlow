@@ -1,0 +1,28 @@
+{
+  "protocol_id": "cgqa_column_centered_support_fixed_v1",
+  "status": "preregistered_before_fixed_test",
+  "dataset": "C-GQA",
+  "phase": "fixed_test_after_validation",
+  "selection_source": {
+    "type": "exploratory_validation_only_screen",
+    "candidate_screen": "output/research/warmflow_cgqa/support_gate_probe_calibrated.json",
+    "crossfit_checks": [
+      "output/research/warmflow_cgqa/crossfit_column_gate_validation.json"
+    ]
+  },
+  "candidate_set": [
+    {
+      "name": "column_centered_min_image_support_full",
+      "score": "zscore(generator_val_or_test - validation_column_mean)",
+      "gate": "min_image_support_continuous_full",
+      "strength": 0.2
+    }
+  ],
+  "generator_logits": [
+    "gaussian_iso_seed0/classifier_logits_residual_1.00.pt",
+    "ensemble_seed1/classifier_logits_residual_1.00.pt",
+    "ensemble_seed2/classifier_logits_residual_1.00.pt"
+  ],
+  "test_rule": "evaluate only the unique candidate above; no strength, gate, centering, or seed search after test access",
+  "test_read": "permitted only after protocol verification"
+}

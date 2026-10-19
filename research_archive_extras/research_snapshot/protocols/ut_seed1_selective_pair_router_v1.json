@@ -1,0 +1,52 @@
+{
+  "status": "preregistered_before_fixed_test",
+  "mode": "selective_unseen_pair_source_router",
+  "dataset": "UT-Zappos seed-1 CAMS checkpoint",
+  "cache": "./CAMS/output/research/warmflow_ut_seed1final/features.pt",
+  "cache_sha256": "029e1b9435501f463ea77b91e0210f8875ced284decc7dc9d557702df62b343d",
+  "family_size": 3,
+  "validation_probe": {
+    "result": "./CAMS/output/research/warmflow_ut_seed1final/selective_pair_router_probe_v1.json",
+    "result_sha256": "5c4596956e9594dfdebd56aadc9529139c76849ca313fbba734d920e7317b7ee"
+  },
+  "sources": [
+    {
+      "family": "isotropic",
+      "path": "./CAMS/output/research/warmflow_ut_seed1final/gaussian_iso_seed0/classifier_logits_residual_1.00.pt",
+      "sha256": "8919873871a5e9456dba3db71afb19c2fd70e6b120460b65327400d7829ed118"
+    },
+    {
+      "family": "isotropic",
+      "path": "./CAMS/output/research/warmflow_ut_seed1final/gaussian_iso_seed1/classifier_logits_residual_1.00.pt",
+      "sha256": "5002d0fd4ce095e3442b8208aa0e212b30095bdda7c8c87b3256acf3bd3f6b91"
+    },
+    {
+      "family": "isotropic",
+      "path": "./CAMS/output/research/warmflow_ut_seed1final/gaussian_iso_seed2/classifier_logits_residual_1.00.pt",
+      "sha256": "1458f7ef5f9edf5ae01a5ba25afaf0976492b17ac81520b8b86fc63308e20ea4"
+    },
+    {
+      "family": "diagonal",
+      "path": "./CAMS/output/research/warmflow_ut_seed1final/diag_ensemble_test_seed0/classifier_logits_residual_1.00.pt",
+      "sha256": "b8ce6e080803becf8069b26d8729e8bd65861c153c7b707ebe297760f148d00d"
+    },
+    {
+      "family": "diagonal",
+      "path": "./CAMS/output/research/warmflow_ut_seed1final/diag_ensemble_test_seed1/classifier_logits_residual_1.00.pt",
+      "sha256": "7c18a8624d170feb07c1448509db65b533b148ede47b80e266485a59cdd65bb5"
+    },
+    {
+      "family": "diagonal",
+      "path": "./CAMS/output/research/warmflow_ut_seed1final/diag_ensemble_test_seed2/classifier_logits_residual_1.00.pt",
+      "sha256": "4fd95a1a87eaab435edbe910f87fe714d4473b85c37d69ebc65ecf46aaf4a949"
+    }
+  ],
+  "selection_rule": "Validation-only candidate with AUC gain >= .002 maximizing HM; apply route only to train-unseen pairs.",
+  "candidate": {
+    "route": "pair_support",
+    "power": 0.25,
+    "scope": "unseen_only",
+    "delta": "full",
+    "strength": 1.5
+  }
+}

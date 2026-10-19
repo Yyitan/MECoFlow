@@ -1,0 +1,15 @@
+{
+  "status":"preregistered_before_fixed_test",
+  "method":"interaction_hyper_classifier_pair_specific_weights",
+  "dataset":"UT-Zappos original CAMS checkpoint",
+  "cache":"./CAMS/output/research/warmflow_ut/features.pt",
+  "cache_sha256":"653e895fee5084560ea587609b1bb59ee20f8b36fb915719a533011218e6e578",
+  "model":"./CAMS/output/research/warmflow_ut/interaction_hyper_val_30ep/classifier.pt",
+  "model_sha256":"7e3d3549bbdcfeb2bd3ecb5b86069d8422c00d1165bc19a05887e121980846e1",
+  "validation_result":"./CAMS/output/research/warmflow_ut/interaction_hyper_val_30ep/results.json",
+  "validation_result_sha256":"74f73fe1be9af53e9ef803552ea5d97031641a2aba7b2aff7561019cab0aa4ed",
+  "rank":32,
+  "candidate":{"delta":"full","strength":0.2},
+  "selection_rule":"validation-only trained classifier; retain AUC gain >= 0.002 and use the fixed validation-selected strength",
+  "test_rule":"evaluate this unique classifier and strength once; no retraining, strength, delta, or checkpoint search after test access"
+}

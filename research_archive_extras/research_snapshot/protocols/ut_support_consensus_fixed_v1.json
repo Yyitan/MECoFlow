@@ -1,0 +1,38 @@
+{
+  "status": "preregistered_before_fixed_test",
+  "dataset": "UT-Zappos",
+  "scope": "original CAMS checkpoint, support-aware source-consensus residual",
+  "cache": "output/research/warmflow_ut/features.pt",
+  "cache_sha256": "653e895fee5084560ea587609b1bb59ee20f8b36fb915719a533011218e6e578",
+  "sources": [
+    {"family": "isotropic", "path": "output/research/warmflow_ut/gaussian_iso_seed0/classifier_logits_residual_1.00.pt", "sha256": "4c5a30fe3528ed4f8c00124e35a657b131700c81324e7b6879874867ef31e521"},
+    {"family": "isotropic", "path": "output/research/warmflow_ut/gaussian_iso_seed1/classifier_logits_residual_1.00.pt", "sha256": "f03fb25fb12a9239b70c1e7dba93e0176d80919515b1007ad5b33826a9f9675c"},
+    {"family": "isotropic", "path": "output/research/warmflow_ut/gaussian_iso_seed2/classifier_logits_residual_1.00.pt", "sha256": "77e23a31e8de783ae639c4013b7e1f471543fa2606eb9ea3d2cdf6243dff42b0"},
+    {"family": "diagonal", "path": "output/research/warmflow_ut/gaussian_diag_seed0/classifier_logits_residual_1.00.pt", "sha256": "fe7eded379364c3785842631c5cee6a65c3380b926c6cac88a136c13b2eec48b"},
+    {"family": "diagonal", "path": "output/research/warmflow_ut/gaussian_diag_seed1/classifier_logits_residual_1.00.pt", "sha256": "4cb792659f5427db49edea8e1318aa94a6695593432eb6e8a9e4949b366ec811"},
+    {"family": "diagonal", "path": "output/research/warmflow_ut/gaussian_diag_seed2/classifier_logits_residual_1.00.pt", "sha256": "7ce85080b83a18daa263f500bf4698f9b4a52c819506ed7733450d4c12783fb8"}
+  ],
+  "candidate_set": [
+    {
+      "name": "support_aware_consensus_update",
+      "support_mode": "harmonic_image_support",
+      "consensus": "inverse",
+      "tau": 2.0,
+      "support_exponent": 0.25,
+      "blend": "linear",
+      "strength": 0.75
+    }
+  ],
+  "validation_selection_rule": "Predeclared support-aware grid; restrict to support_exponent > 0, retain validation AUC gain >= 0.002, choose largest validation HM gain.",
+  "validation_gate": {
+    "result": "output/research/warmflow_ut/support_consensus_probe.json",
+    "result_sha256": "65aacd3f38997dac6cf3922cba0e407254ec6818c917a648a68cd08a68e888b9",
+    "script": "research/support_consensus_probe.py",
+    "script_sha256": "f0ab0eaf870bf1d622c2ee7127946b7d31bb55fa867cfb43674d84f3600ff3e5",
+    "test_read": false,
+    "selected_val_auc_gain": 0.012893567822558571,
+    "selected_val_hm_gain": 0.009909548167712279,
+    "min_val_auc_gain": 0.002
+  },
+  "test_rule": "Use the unique candidate exactly once; do not search support mode, consensus, tau, exponent, blend, strength, or aggregation after test access."
+}

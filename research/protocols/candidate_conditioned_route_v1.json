@@ -1,0 +1,30 @@
+{
+  "status": "preregistered_before_validation",
+  "mode": "candidate_conditioned_route_blend_validation_only",
+  "innovation": "class-conditional route selection from frozen CAMS pair confidence",
+  "candidate_family": {
+    "slope": [-8.0, -4.0, 4.0, 8.0],
+    "threshold": [-0.5, 0.0, 0.5],
+    "seen_pair_alpha": 1.0,
+    "selection": "retain AUC gain >= 0.002 and maximize HM, then AUC"
+  },
+  "datasets": [
+    {
+      "name": "UT-Zappos seed-1",
+      "cache": "./CAMS/output/research/warmflow_ut_seed1final/features.pt",
+      "iso_logits": "output/research/warmflow_ut_seed1final/gaussian_iso_seed{0,1,2}/classifier_logits_residual_1.00.pt",
+      "diag_logits": "output/research/warmflow_ut_seed1final/diag_ensemble_val_seed{0,1,2}/classifier_logits_residual_1.00.pt"
+    },
+    {
+      "name": "MIT seed-1",
+      "cache": "./CAMS/output/research/cache_mit_seed1/features.pt",
+      "iso_logits": "output/research/warmflow_mit_seed1final/gaussian_iso_seed{0,1,2}/classifier_logits_residual_1.00.pt",
+      "diag_logits": "output/research/warmflow_mit_seed1final/gaussian_diag_adaptive_val_seed{0,1,2}/classifier_logits_residual_1.00.pt"
+    }
+  ],
+  "test_read": false,
+  "script": {
+    "path": "research/adaptive_route_candidate_probe.py",
+    "sha256": "fa785865bf81ecef1a2a0cf7483f54fa7e39119f8237b204d33cf93c558ac462"
+  }
+}

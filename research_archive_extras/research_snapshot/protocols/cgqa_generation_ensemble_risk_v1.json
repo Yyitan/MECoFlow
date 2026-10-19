@@ -1,0 +1,15 @@
+{
+  "status":"preregistered_before_validation",
+  "mode":"cgqa_isotropic_vs_generation_ensemble_structural_risk_validation_only",
+  "dataset":"C-GQA CAMS checkpoint",
+  "cache":"./CAMS/output/research/warmflow_cgqa/features.pt",
+  "cache_sha256":"9183f251d9ee415f25300dccd00cb79b8531bf3bb6a9cd573a976ea4d03c521b",
+  "family_size":1,"auc_gate":0.002,"beta_values":[0.25,0.5,1.0],"slope_values":[4.0,8.0],"threshold_values":[0.4,0.6,0.8],
+  "candidate_family":"alpha=sigmoid(slope*(threshold-normalized(entropy+beta*(1-support)))) on unseen pairs; route A is gaussian isotropic and route B is the mean of two independent generation seeds",
+  "validation_sources":[
+    {"family":"isotropic","path":"./CAMS/output/research/warmflow_cgqa/gaussian_iso_seed0/classifier_logits_residual_1.00.pt","sha256":"b4afd2afe20f306eb99243a83cb7d3e64e1a0dc820d23e0708b2f78d04a2d5b7"},
+    {"family":"generation_seed1","path":"./CAMS/output/research/warmflow_cgqa/ensemble_seed1/classifier_logits_residual_1.00.pt","sha256":"00eb219d4eee532b14a108642e2480b7e5fc29a284f5bf1a1b791a64d07a3564"},
+    {"family":"generation_seed2","path":"./CAMS/output/research/warmflow_cgqa/ensemble_seed2/classifier_logits_residual_1.00.pt","sha256":"27b82613a77c83bad9bcf3b67e90060a6ec5bc90f5780846b8d29a3271575ab4"}
+  ],
+  "script":{"path":"./CAMS/research/adaptive_route_risk_probe.py","sha256":"88d0865a5828ec6ee7619954c9a428b5821f98ffafbdd90738911ef933e0543d"}
+}

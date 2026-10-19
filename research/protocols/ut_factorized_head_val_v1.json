@@ -1,0 +1,41 @@
+{
+  "status": "preregistered_before_validation",
+  "mode": "factorized_composition_classifier_head",
+  "dataset": "UT-Zappos seed-1 CAMS checkpoint",
+  "cache": "./CAMS/output/research/warmflow_ut_seed1final/features.pt",
+  "cache_sha256": "029e1b9435501f463ea77b91e0210f8875ced284decc7dc9d557702df62b343d",
+  "flow_path": "./CAMS/output/research/warmflow_ut_seed1final/flow_seed0/flow.pt",
+  "flow_sha256": "5adff5c51bd9aa436769034d98edb2a9422aab97dce7dd38d8f1b70992f0bd95",
+  "additive_path": "./CAMS/output/research/warmflow_ut_seed1final/flow_seed0/additive_means.pt",
+  "additive_sha256": "a7c3a4bbc2092cfdf49786f0b58043d4ba70ece2bfa6b1cca8b11d5108961018",
+  "candidate_heads": ["factorized", "adapter"],
+  "rank": 64,
+  "epochs": 20,
+  "batch_size": 4096,
+  "lr": 0.003,
+  "residual_scale": 1.0,
+  "samples_per_class": 16,
+  "sample_steps": 8,
+  "seed": 0,
+  "auc_gate": 0.002,
+  "selection": "validation-only: maximize AUC+best_HM, then AUC, then HM",
+  "test_read": false,
+  "results": {
+    "factorized": {
+      "path": "./CAMS/output/research/warmflow_ut_seed1final/factorized_head_val_v1/results.json",
+      "sha256": "9dd4c60e6a99e1d4cccc0f06bcf64312735bae6cb744de92d3955694b161db8a",
+      "auc_gain": 0.00018175111554386003,
+      "hm_gain": 0.004762293222076108
+    },
+    "adapter": {
+      "path": "./CAMS/output/research/warmflow_ut_seed1final/adapter_head_val_v1/results.json",
+      "sha256": "29342c1316b4799c3b6973e354f82a4ded1068bd7c41d80e862b7ae1bcb50f25",
+      "auc_gain": 0.0009245955733770961,
+      "hm_gain": 0.0036948252820528937
+    }
+  },
+  "script": {
+    "path": "./CAMS/research/factorized_warmflow_classifier.py",
+    "sha256": "8c5b1d3ed2f651278923d9090b522041851e003000631facad82259b3f740736"
+  }
+}

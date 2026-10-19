@@ -1,0 +1,35 @@
+{
+  "status": "preregistered_before_fixed_test",
+  "dataset": "MIT-States",
+  "scope": "independent MIT seed-1 checkpoint, support-only residual gate",
+  "cache": "output/research/cache_mit_seed1/features.pt",
+  "cache_sha256": "eca8675e69ad84a762027dc32391b5e21eb44c31661823c35c51dbf087cecda8",
+  "sources": [
+    {"family": "isotropic", "path": "output/research/warmflow_mit_seed1final/gaussian_iso_seed0/classifier_logits_residual_1.00.pt", "sha256": "5ceab54108acc76bb8abb76af7b6ac6dfd719589d702c48469787bb39514abd9"},
+    {"family": "isotropic", "path": "output/research/warmflow_mit_seed1final/gaussian_iso_seed1/classifier_logits_residual_1.00.pt", "sha256": "ffad236b3d60598b4ad350d58f790239c065af8a841636bbfb1aaf0802aedaf3"},
+    {"family": "isotropic", "path": "output/research/warmflow_mit_seed1final/gaussian_iso_seed2/classifier_logits_residual_1.00.pt", "sha256": "74d35deb5a2e72f790988a2ff8044348941209dff02bdf8c2cc0928bfc5e5093"}
+  ],
+  "candidate_set": [
+    {
+      "name": "support_aware_support_only_update",
+      "support_mode": "min_image_support",
+      "consensus": "none",
+      "tau": 0.0,
+      "support_exponent": 1.0,
+      "blend": "linear",
+      "strength": 0.5
+    }
+  ],
+  "validation_selection_rule": "Predeclared support-aware grid; restrict to support_exponent > 0, retain validation AUC gain >= 0.002, choose largest validation HM gain.",
+  "validation_gate": {
+    "result": "output/research/warmflow_mit_seed1final/support_consensus_probe.json",
+    "result_sha256": "96e68051d09d6fc947e9849024d52315c24e36e152f89b5f6098cb9727faae20",
+    "script": "research/support_consensus_probe.py",
+    "script_sha256": "f0ab0eaf870bf1d622c2ee7127946b7d31bb55fa867cfb43674d84f3600ff3e5",
+    "test_read": false,
+    "selected_val_auc_gain": 0.002848589939959567,
+    "selected_val_hm_gain": 0.002344916669880903,
+    "min_val_auc_gain": 0.002
+  },
+  "test_rule": "Use the unique candidate exactly once; do not search support mode, consensus, tau, exponent, blend, strength, or aggregation after test access."
+}

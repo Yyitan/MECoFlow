@@ -1,0 +1,35 @@
+{
+  "status": "preregistered_before_fixed_test",
+  "dataset": "UT-Zappos",
+  "scope": "independent UT seed-1 checkpoint, support-only residual gate",
+  "cache": "output/research/warmflow_ut_seed1final/features.pt",
+  "cache_sha256": "029e1b9435501f463ea77b91e0210f8875ced284decc7dc9d557702df62b343d",
+  "sources": [
+    {"family": "diagonal", "path": "output/research/warmflow_ut_seed1final/diag_ensemble_val_seed0/classifier_logits_residual_1.00.pt", "sha256": "90c1b885129b9dfaa5ba6ccc969acfb037fdb3dbcd0f06d5245f589f519d16d1"},
+    {"family": "diagonal", "path": "output/research/warmflow_ut_seed1final/diag_ensemble_val_seed1/classifier_logits_residual_1.00.pt", "sha256": "ea9266dd9936ba51904271a18d04b40d4ccfe3b89499f6a5a0d7eff8b9238c82"},
+    {"family": "diagonal", "path": "output/research/warmflow_ut_seed1final/diag_ensemble_val_seed2/classifier_logits_residual_1.00.pt", "sha256": "84fae5e3779e5e2c0cee252b2648b24ce6897b344ec3b30db36cf986dfae6e42"}
+  ],
+  "candidate_set": [
+    {
+      "name": "support_aware_support_only_update",
+      "support_mode": "min_image_support",
+      "consensus": "none",
+      "tau": 0.0,
+      "support_exponent": 0.5,
+      "blend": "linear",
+      "strength": 0.75
+    }
+  ],
+  "validation_selection_rule": "Predeclared support-aware grid; restrict to support_exponent > 0, retain validation AUC gain >= 0.002, choose largest validation HM gain.",
+  "validation_gate": {
+    "result": "output/research/warmflow_ut_seed1final/support_consensus_probe.json",
+    "result_sha256": "e300b6c7337ddd11c4b66c71e5dc846660284ec1f769aa576f01ce91da5cc4ec",
+    "script": "research/support_consensus_probe.py",
+    "script_sha256": "f0ab0eaf870bf1d622c2ee7127946b7d31bb55fa867cfb43674d84f3600ff3e5",
+    "test_read": false,
+    "selected_val_auc_gain": 0.0049574425598112315,
+    "selected_val_hm_gain": 0.012596196258769732,
+    "min_val_auc_gain": 0.002
+  },
+  "test_rule": "Use the unique candidate exactly once; do not search support mode, consensus, tau, exponent, blend, strength, or aggregation after test access."
+}

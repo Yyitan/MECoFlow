@@ -1,0 +1,26 @@
+{
+  "protocol_id": "ut_diagonal_source_mean_fixed_v1",
+  "status": "preregistered_before_fixed_test",
+  "dataset": "UT-Zappos",
+  "phase": "fixed_test_after_validation",
+  "selection_source": {
+    "type": "validation_only_crossfit",
+    "full_validation": "output/research/warmflow_ut/distribution_ensemble_probe.json",
+    "crossfit_validation": "output/research/warmflow_ut/crossfit_distribution_validation.json"
+  },
+  "candidate_set": [
+    {
+      "name": "diagonal_source_mean_update",
+      "score": "mean(zscore(diagonal_generator_logits))",
+      "delta": "update = score - zscore(CLIP_text_logits)",
+      "strength": 1.25
+    }
+  ],
+  "generator_logits": [
+    "gaussian_diag_seed0/classifier_logits_residual_1.00.pt",
+    "gaussian_diag_seed1/classifier_logits_residual_1.00.pt",
+    "gaussian_diag_seed2/classifier_logits_residual_1.00.pt"
+  ],
+  "test_rule": "evaluate only the unique candidate above; no strength, source, delta, or seed search after test access",
+  "test_read": "permitted only after protocol verification"
+}

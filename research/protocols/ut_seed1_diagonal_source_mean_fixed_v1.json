@@ -1,0 +1,27 @@
+{
+  "protocol_id": "ut_seed1_diagonal_source_mean_fixed_v1",
+  "status": "preregistered_before_fixed_test",
+  "dataset": "UT-Zappos",
+  "checkpoint": "warmflow_ut_seed1final",
+  "selection_source": {
+    "type": "validation_only_crossfit",
+    "validation_grid": "output/research/warmflow_ut_seed1final/diag_ensemble_validation_s0.75.json",
+    "crossfit_validation": "output/research/warmflow_ut_seed1final/diag_ensemble_crossfit_s075.json"
+  },
+  "frozen_fusion": {
+    "delta": "update",
+    "strength": 0.75,
+    "min_val_auc_gain": 0.002
+  },
+  "generator": {
+    "residual_distribution": "gaussian_diag",
+    "residual_scale": 1.0,
+    "flow_epochs": 20,
+    "classifier_epochs": 30,
+    "samples_per_class": 32,
+    "sample_steps": 8,
+    "seeds": [0, 1, 2]
+  },
+  "test_rule": "load each validation-trained flow with the same seed, write test logits, and evaluate only the frozen update x 0.75 candidate; no post-test search",
+  "test_read": "permitted only after protocol verification"
+}

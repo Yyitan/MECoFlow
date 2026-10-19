@@ -1,0 +1,47 @@
+model:
+  model_name: CAMS
+  prompt_template: ["a photo of x x", "a photo of x", "a photo of x"]
+  ctx_init: ["a photo of ", "a photo of ", "a photo of "]
+  clip_model: "./lyt/czsl/CLIP-main/ViT-L-14.pt"
+  num_units: 32
+  m_layers: 9
+  adapter_dim: 64
+
+train:
+  dataset_path: data/ut-zap50k
+  dataset: ut-zappos
+  step_size: 1
+  gamma: 0.5
+  lr: 0.001
+  train_batch_size: 64
+  epochs: 3
+  context_length: 8
+  seed: 0
+  val_metric: AUC
+  save_final_model: false
+  save_path: output/ut_sler_stable_affbase_seed0
+  att_loss_weight: 0.5
+  obj_loss_weight: 0.5
+  com_loss_weight: 1
+  glb_loss_weight: 1
+  use_sler: true
+  sler_route_tau: 0.07
+  sler_mix: 0.25
+  sler_confidence_floor: 0.25
+  sler_class_chunk_size: 512
+  sler_route_weight: 0.0
+  sler_entropy_weight: 0.05
+  sler_counterfactual_weight: 0.0
+  sler_freeze_legacy: true
+  sler_init_model: output/ut_affinity_eps005_seed0/val_best.pt
+  sler_adapter_dim: 64
+  sler_gate_init: 0.1
+
+test:
+  open_world: true
+  eval_batch_size: 64
+  feasibility: feasibilities/feasibility_zp.pt
+  threshold: 0.4705232256
+  threshold_trials: 50
+  beta: 0.65
+  load_model: output/ut_sler_stable_affbase_seed0/val_best.pt

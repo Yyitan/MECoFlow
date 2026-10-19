@@ -1,0 +1,26 @@
+{
+  "status": "preregistered_before_fixed_test",
+  "method": "adaptive_nonparametric_source_posterior",
+  "dataset": "UT-Zappos CAMS checkpoint",
+  "cache": "./CAMS/output/research/warmflow_ut/features.pt",
+  "cache_sha256": "653e895fee5084560ea587609b1bb59ee20f8b36fb915719a533011218e6e578",
+  "sources": [
+    {"path": "./CAMS/output/research/warmflow_ut/gaussian_iso_seed0/classifier_logits_residual_1.00.pt", "sha256": "4c5a30fe3528ed4f8c00124e35a657b131700c81324e7b6879874867ef31e521"},
+    {"path": "./CAMS/output/research/warmflow_ut/gaussian_iso_seed1/classifier_logits_residual_1.00.pt", "sha256": "f03fb25fb12a9239b70c1e7dba93e0176d80919515b1007ad5b33826a9f9675c"},
+    {"path": "./CAMS/output/research/warmflow_ut/gaussian_iso_seed2/classifier_logits_residual_1.00.pt", "sha256": "77e23a31e8de783ae639c4013b7e1f471543fa2606eb9ea3d2cdf6243dff42b0"},
+    {"path": "./CAMS/output/research/warmflow_ut/gaussian_diag_seed0/classifier_logits_residual_1.00.pt", "sha256": "fe7eded379364c3785842631c5cee6a65c3380b926c6cac88a136c13b2eec48b"},
+    {"path": "./CAMS/output/research/warmflow_ut/gaussian_diag_seed1/classifier_logits_residual_1.00.pt", "sha256": "4cb792659f5427db49edea8e1318aa94a6695593432eb6e8a9e4949b366ec811"},
+    {"path": "./CAMS/output/research/warmflow_ut/gaussian_diag_seed2/classifier_logits_residual_1.00.pt", "sha256": "7ce85080b83a18daa263f500bf4698f9b4a52c819506ed7733450d4c12783fb8"}
+  ],
+  "candidate_set": [
+    {"center": "median", "distance": "abs", "confidence": "margin_high", "tau": 4.0, "confidence_power": 0.25, "delta": "full", "strength": 1.5}
+  ],
+  "validation_selection_rule": "retain candidates with validation AUC gain >= 0.002, then select the largest validation HM; no test access",
+  "validation_gate": {
+    "test_read": false,
+    "result": "./CAMS/output/research/warmflow_ut/adaptive_source_posterior/probe.json",
+    "mean_auc_gain": 0.013347314513377562,
+    "mean_hm_gain": 0.010506228800925776
+  },
+  "test_rule": "After protocol lock, run exactly this unique candidate once; do not search or alter center, distance, confidence, tau, power, delta, or strength on test."
+}

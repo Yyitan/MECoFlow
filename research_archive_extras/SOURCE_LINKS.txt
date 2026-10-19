@@ -1,0 +1,6 @@
+CAMS_root -> ./CAMS
+CAMS_output -> ./CAMS/output
+CAMS_external -> ./CAMS/external
+
+TARGET_SIZES
+94G	links/CAMS_root

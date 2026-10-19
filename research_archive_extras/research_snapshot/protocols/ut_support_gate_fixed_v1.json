@@ -1,0 +1,26 @@
+{
+  "protocol_id": "ut_support_gate_fixed_v1",
+  "status": "preregistered_before_fixed_test",
+  "dataset": "UT-Zappos",
+  "phase": "fixed_test_after_validation",
+  "selection_source": {
+    "type": "validation_only_crossfit",
+    "full_validation": "output/research/warmflow_ut/topology_gated_valonly_probe.json",
+    "crossfit_validation": "output/research/warmflow_ut/crossfit_support_gate_validation.json"
+  },
+  "candidate_set": [
+    {
+      "name": "min_image_support_continuous_full",
+      "score": "zscore(generator_logits)",
+      "gate": "min_image_support_continuous_full",
+      "strength": 0.2
+    }
+  ],
+  "generator_logits": [
+    "gaussian_iso_seed0/classifier_logits_residual_1.00.pt",
+    "gaussian_iso_seed1/classifier_logits_residual_1.00.pt",
+    "gaussian_iso_seed2/classifier_logits_residual_1.00.pt"
+  ],
+  "test_rule": "evaluate only the unique candidate above; no strength, gate, or seed search after test access",
+  "test_read": "permitted only after protocol verification"
+}

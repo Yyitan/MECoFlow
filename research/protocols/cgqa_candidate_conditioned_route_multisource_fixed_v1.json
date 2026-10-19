@@ -1,0 +1,52 @@
+{
+  "status": "preregistered_before_fixed_test",
+  "dataset": "C-GQA three-source candidate-conditioned transfer",
+  "cache": "./CAMS/output/research/warmflow_cgqa/features.pt",
+  "cache_sha256": "9183f251d9ee415f25300dccd00cb79b8531bf3bb6a9cd573a976ea4d03c521b",
+  "validation_probe": "./CAMS/output/research/warmflow_cgqa/candidate_conditioned_route_probe_multisource_v1.json",
+  "validation_probe_sha256": "680df454664fc73cf74b65bb8b53f02d4710031f220817d88fa0af95f814037a",
+  "candidate": {
+    "name": "candidate_score_sigmoid_-8_-0.5",
+    "slope": -8.0,
+    "threshold": -0.5
+  },
+  "validation_sources": [
+    "./CAMS/output/research/warmflow_cgqa/gaussian_iso_seed0/classifier_logits_residual_1.00.pt",
+    "./CAMS/output/research/warmflow_cgqa/gaussian_iso_seed1_candidateaudit_val/classifier_logits_residual_1.00.pt",
+    "./CAMS/output/research/warmflow_cgqa/gaussian_iso_seed2_candidateaudit_val/classifier_logits_residual_1.00.pt",
+    "./CAMS/output/research/warmflow_cgqa/gaussian_diag_seed0/classifier_logits_residual_1.00.pt",
+    "./CAMS/output/research/cgqa_diag_seed1_candidateaudit_val/classifier_logits_residual_1.00.pt",
+    "./CAMS/output/research/cgqa_diag_seed2_candidateaudit_val/classifier_logits_residual_1.00.pt"
+  ],
+  "validation_source_sha256": [
+    "b4afd2afe20f306eb99243a83cb7d3e64e1a0dc820d23e0708b2f78d04a2d5b7",
+    "e7841c6128971da637e01db96b9317915c4f84ea2601fb059f85164340aec83e",
+    "15a82c4647e20c3c81f16399e7109da22a96652fb0365acfe317d2b3a617bc0b",
+    "b3aa1704cdfde1abcab6028ab175bda6462a75846c5e108ca5f714f5594f67ff",
+    "ef5e205490fd47fca07df6e42c209846dfcfc5727558093543d603985aadcc14",
+    "570143730e0c44c798d85a33edf9ee27015c4f86ab041419f5a17c98e7ba07e0"
+  ],
+  "sources": [
+    "./CAMS/output/research/warmflow_cgqa/gaussian_iso_seed0/classifier_logits_residual_1.00.pt",
+    "./CAMS/output/research/warmflow_cgqa/gaussian_iso_seed1_candidateaudit_test/classifier_logits_residual_1.00.pt",
+    "./CAMS/output/research/warmflow_cgqa/gaussian_iso_seed2_candidateaudit_test/classifier_logits_residual_1.00.pt",
+    "./CAMS/output/research/warmflow_cgqa/gaussian_diag_seed0/classifier_logits_residual_1.00.pt",
+    "./CAMS/output/research/cgqa_diag_seed1_candidateaudit_test/classifier_logits_residual_1.00.pt",
+    "./CAMS/output/research/cgqa_diag_seed2_candidateaudit_test/classifier_logits_residual_1.00.pt"
+  ],
+  "source_sha256": [
+    "b4afd2afe20f306eb99243a83cb7d3e64e1a0dc820d23e0708b2f78d04a2d5b7",
+    "2e0daf43ea7fa774e2b82fe67e1f3c3369d5b63805da007c26071827a062e7c8",
+    "ea7605bf376a299070e68e1abc0ab92ec9b24f47ab1c85be1080b7072e0525ae",
+    "b3aa1704cdfde1abcab6028ab175bda6462a75846c5e108ca5f714f5594f67ff",
+    "9f730215b5534137bd846f03cd580327d39896344985bd573f9531fec181bfc9",
+    "4eed7937e5a1fada19f6c101794bc6ca44078fde9d2eff1373dd47d856b5ccef"
+  ],
+  "test_search_after_lock": false,
+  "test_read": true,
+  "scope": "strict three-source C-GQA transfer; candidate selected on mean validation only",
+  "script": {
+    "path": "./CAMS/research/fixed_candidate_conditioned_route_test.py",
+    "sha256": "bbd4abd8ecbce991c949066fe4991804455b043a47b7c3a4fb27f8f058797e21"
+  }
+}

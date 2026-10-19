@@ -1,0 +1,31 @@
+import argparse
+
+parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
+parser.add_argument('--config', default='CAMS/configs/utzappos.yml', help='Path of the config file') 
+parser.add_argument('--dataset_path', default='ut-zap50k', help='Path of the dataset')
+parser.add_argument('--splitname', default='compositional-split-natural', help="Dataset split")
+parser.add_argument('--open_world', action='store_true', default=False, help='perform open world experiment')
+parser.add_argument("--seed", help="seed value", default=0, type=int)
+parser.add_argument('--bias', type=float, default=1e3, help='Bias value for unseen concepts')
+parser.add_argument("--weight_decay", help="weight decay", type=float, default=1e-5) #1e-5
+parser.add_argument("--save_every_n", default=5, type=int, help="saves the model every n epochs")
+
+parser.add_argument('--topk', type=int, default=1,help="Compute topk accuracy")
+parser.add_argument('--threshold', default=None,help="Apply a specific threshold at test time for the hard masking")
+parser.add_argument('--threshold_trials', type=int, default=50,help="how many threshold values to try")
+parser.add_argument('--use_pair_affinity', action='store_true', default=False, help='Use pair-affinity soft targets for composition/global losses')
+parser.add_argument('--affinity_eps', type=float, default=0.0, help='Mixture weight for pair-affinity soft target distribution')
+parser.add_argument('--affinity_tau', type=float, default=0.07, help='Temperature for pair-affinity target softmax')
+parser.add_argument('--affinity_attr_weight', type=float, default=0.35, help='Attribute-match component weight in pair affinity')
+parser.add_argument('--affinity_obj_weight', type=float, default=0.35, help='Object-match component weight in pair affinity')
+parser.add_argument('--affinity_text_weight', type=float, default=0.30, help='Text-similarity component weight in pair affinity')
+parser.add_argument('--affinity_exclude_gt', action='store_true', default=False, help='Exclude the ground-truth pair from the affinity distribution so all epsilon mass goes to structured negatives')
+parser.add_argument('--use_sler', action='store_true', default=False, help='Enable Structured Latent Evidence Routing')
+parser.add_argument('--sler_route_tau', type=float, default=0.07, help='Temperature for class-to-latent evidence routing')
+parser.add_argument('--sler_mix', type=float, default=0.5, help='Maximum mixture weight of routed evidence versus CAMS mean pooling')
+parser.add_argument('--sler_confidence_floor', type=float, default=0.25, help='Minimum fraction of sler_mix used for high-entropy routes')
+parser.add_argument('--sler_class_chunk_size', type=int, default=512, help='Class chunk size for memory-efficient latent routing')
+parser.add_argument('--sler_route_weight', type=float, default=0.1, help='Weight of compositional route-consistency loss')
+parser.add_argument('--sler_entropy_weight', type=float, default=0.05, help='Primitive route concentration weight inside route loss')
+parser.add_argument('--sler_counterfactual_weight', type=float, default=0.1, help='Weight of counterfactual primitive recomposition loss')

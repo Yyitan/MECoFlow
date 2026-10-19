@@ -1,0 +1,39 @@
+{
+  "status": "preregistered_before_fixed_test",
+  "dataset": "UT-Zappos",
+  "scope": "original UT checkpoint, factorized object-support residual gate",
+  "cache": "output/research/warmflow_ut/features.pt",
+  "cache_sha256": "653e895fee5084560ea587609b1bb59ee20f8b36fb915719a533011218e6e578",
+  "sources": [
+    {"family": "isotropic", "path": "output/research/warmflow_ut/gaussian_iso_seed0/classifier_logits_residual_1.00.pt", "sha256": "4c5a30fe3528ed4f8c00124e35a657b131700c81324e7b6879874867ef31e521"},
+    {"family": "isotropic", "path": "output/research/warmflow_ut/gaussian_iso_seed1/classifier_logits_residual_1.00.pt", "sha256": "f03fb25fb12a9239b70c1e7dba93e0176d80919515b1007ad5b33826a9f9675c"},
+    {"family": "isotropic", "path": "output/research/warmflow_ut/gaussian_iso_seed2/classifier_logits_residual_1.00.pt", "sha256": "77e23a31e8de783ae639c4013b7e1f471543fa2606eb9ea3d2cdf6243dff42b0"},
+    {"family": "diagonal", "path": "output/research/warmflow_ut/gaussian_diag_seed0/classifier_logits_residual_1.00.pt", "sha256": "fe7eded379364c3785842631c5cee6a65c3380b926c6cac88a136c13b2eec48b"},
+    {"family": "diagonal", "path": "output/research/warmflow_ut/gaussian_diag_seed1/classifier_logits_residual_1.00.pt", "sha256": "4cb792659f5427db49edea8e1318aa94a6695593432eb6e8a9e4949b366ec811"},
+    {"family": "diagonal", "path": "output/research/warmflow_ut/gaussian_diag_seed2/classifier_logits_residual_1.00.pt", "sha256": "7ce85080b83a18daa263f500bf4698f9b4a52c819506ed7733450d4c12783fb8"}
+  ],
+  "candidate_set": [
+    {
+      "name": "support_aware_support_only_update",
+      "aggregation": "mean",
+      "support_mode": "object_image_support",
+      "consensus": "none",
+      "tau": 0.0,
+      "support_exponent": 1.0,
+      "blend": "linear",
+      "strength": 1.0
+    }
+  ],
+  "validation_selection_rule": "Predeclared factorized support grid; retain validation AUC gain >= 0.002 and maximize validation HM.",
+  "validation_gate": {
+    "result": "output/research/warmflow_ut/factorized_support_probe.json",
+    "result_sha256": "f4e21675ce1211f56c1f30a76a05a184d7ba9febc1b4547a14d0ec42b1ec7943",
+    "script": "research/factorized_support_probe.py",
+    "script_sha256": "b46431923db06f6725ebf4468728af6148240a980bcca5a78d1046dc5ad4c2e2",
+    "test_read": false,
+    "selected_val_auc_gain": 0.015113317256040038,
+    "selected_val_hm_gain": 0.010113966842552391,
+    "min_val_auc_gain": 0.002
+  },
+  "test_rule": "Use the unique candidate exactly once; do not search aggregation, alpha, support transform, parameter, strength, or any other setting after test access."
+}

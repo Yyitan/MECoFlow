@@ -1,0 +1,28 @@
+{
+  "status": "preregistered_before_fixed_test",
+  "mode": "cgqa_entropy_plus_support_structural_risk_fixed_test",
+  "dataset": "C-GQA CAMS checkpoint",
+  "cache": "./CAMS/output/research/warmflow_cgqa/features.pt",
+  "cache_sha256": "9183f251d9ee415f25300dccd00cb79b8531bf3bb6a9cd573a976ea4d03c521b",
+  "family_size": 1,
+  "auc_gate": 0.002,
+  "validation_probe": {"result":"./CAMS/output/research/warmflow_cgqa/structural_risk_probe_v1.json","result_sha256":"acb7cdbdcf47091f1c7c45fc2e6dd752d3db2340049fd9ca9681ddf83332cc3d"},
+  "candidate": {
+    "beta": 0.5,
+    "slope": 8.0,
+    "threshold": 0.8,
+    "route_a": {"route":"inverse_pair_support","power":1.0,"strength":1.0},
+    "route_b": {"route":"pair_support","power":0.25,"seen_lambda":0.25,"strength":1.5}
+  },
+  "validation_sources": [
+    {"family":"isotropic","path":"./CAMS/output/research/warmflow_cgqa/gaussian_iso_seed0/classifier_logits_residual_1.00.pt","sha256":"b4afd2afe20f306eb99243a83cb7d3e64e1a0dc820d23e0708b2f78d04a2d5b7"},
+    {"family":"diagonal","path":"./CAMS/output/research/warmflow_cgqa/gaussian_diag_seed0/classifier_logits_residual_1.00.pt","sha256":"b3aa1704cdfde1abcab6028ab175bda6462a75846c5e108ca5f714f5594f67ff"}
+  ],
+  "sources": [
+    {"family":"isotropic","path":"./CAMS/output/research/warmflow_cgqa/gaussian_iso_seed0/classifier_logits_residual_1.00.pt","sha256":"b4afd2afe20f306eb99243a83cb7d3e64e1a0dc820d23e0708b2f78d04a2d5b7"},
+    {"family":"diagonal","path":"./CAMS/output/research/warmflow_cgqa/gaussian_diag_seed0/classifier_logits_residual_1.00.pt","sha256":"b3aa1704cdfde1abcab6028ab175bda6462a75846c5e108ca5f714f5594f67ff"}
+  ],
+  "normalization": "validation_risk_minmax_reused_for_test",
+  "script": {"path":"./CAMS/research/fixed_adaptive_route_risk_test.py","sha256":"e582a215a5f6a6369e1d7cd866402a43e40bc9dab1560b03dc89fadb19135bcc"},
+  "test_search_after_lock": false
+}

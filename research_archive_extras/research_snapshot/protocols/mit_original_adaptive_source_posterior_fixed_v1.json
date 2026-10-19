@@ -1,0 +1,23 @@
+{
+  "status": "preregistered_before_fixed_test",
+  "method": "adaptive_nonparametric_source_posterior",
+  "dataset": "MIT-States original CAMS checkpoint",
+  "cache": "./CAMS/output/research/piflow_mit/features.pt",
+  "cache_sha256": "c9200e01e6c759eabe0a70aa832170ebafafcb286f3db3060c8ae063c2f91a21",
+  "sources": [
+    {"path": "./CAMS/output/research/warmflow_mit_gaussian_iso_seed0/classifier_logits_residual_0.50.pt", "sha256": "8b53be791759eea966adaced4a74c509725cc2f797a559624bce82b123735b32"},
+    {"path": "./CAMS/output/research/warmflow_mit_gaussian_iso_seed1/classifier_logits_residual_0.50.pt", "sha256": "a34d73872eb74fa87f6df295f1ce7c436526d7d4beb8b972fca4fc4c35712ae3"},
+    {"path": "./CAMS/output/research/warmflow_mit_gaussian_iso_seed2/classifier_logits_residual_0.50.pt", "sha256": "ecbb463deb2b8b9d4c40b05e5c76941c0aa24d29ca9e86e5741f5756780746ba"}
+  ],
+  "candidate_set": [
+    {"center": "mean", "distance": "abs", "confidence": "entropy_low", "tau": 4.0, "confidence_power": 1.0, "delta": "update", "strength": 0.75}
+  ],
+  "validation_selection_rule": "candidate imported from the preregistered MIT seed-1 adaptive posterior setting; retain only if validation AUC gain >= 0.002, with largest validation HM already locked in the source protocol; do not search test",
+  "validation_gate": {
+    "test_read": false,
+    "result": "./CAMS/output/research/warmflow_mit/adaptive_source_posterior/replay_validation.json",
+    "mean_auc_gain": 0.0026030152667523287,
+    "mean_hm_gain": 0.002482513388659624
+  },
+  "test_rule": "After protocol lock, run exactly this imported candidate once; do not search or alter center, distance, confidence, tau, power, delta, or strength on test."
+}
